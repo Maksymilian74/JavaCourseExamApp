@@ -12,15 +12,16 @@ public class Elementy implements Runnable {
         this.x = x;
         this.y = y;
         this.rozmiar = rozmiar;
-        this.kolor = Color.BLACK;
+        this.kolor = kolor;
         this.typ = typ;
         wynik =0;
     }
 
-//    public void rysuj(Graphics g) {
-//            g.setColor(kolor);
-//            g.drawRect(x,y,rozmiar,rozmiar);
-//    }
+    public void rysuj(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(kolor);
+        g2d.fillRect(x, y, rozmiar, rozmiar);
+    }
 
 
     @Override

@@ -2,6 +2,7 @@ package Gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import Elementy.Elementy;
 
@@ -17,6 +18,7 @@ public class ObszarRysowania extends JPanel {
         typElementu =0;
         x = 0;
         y = 0;
+        elementyList = new ArrayList<>();
     }
 
     public void setTypElementu(int typElementu) {
@@ -26,13 +28,14 @@ public class ObszarRysowania extends JPanel {
     void addFig() {
         if(typElementu==1) {
             elementy = new Elementy(x, y, 20, Color.RED,1);
-            //elementyList.add(elementy);
+            elementyList.add(elementy);
             new Thread(elementy).start();
         } else if (typElementu ==2) {
             elementy = new Elementy(x, y, 30, Color.GREEN,2);
-            //elementyList.add(elementy);
+            elementyList.add(elementy);
             new Thread(elementy).start();
         }
+        repaint();
     }
 
     public void setX(int x) {
@@ -43,12 +46,12 @@ public class ObszarRysowania extends JPanel {
         this.y = y;
     }
 
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//
-//        for(Elementy.Elementy figura : elementyList) {
-//            figura.rysuj(g);
-//        }
-//    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        for(Elementy figura : elementyList) {
+            figura.rysuj(g);
+        }
+    }
 }
