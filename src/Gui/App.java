@@ -26,7 +26,7 @@ public class App extends JFrame {
         obszarObliczenia = new ObszarObliczenia(obszarRysowania);
         mainPanel.add(obszarObliczenia, BorderLayout.EAST);
 
-        ObslugaMouse obslugaMouse = new ObslugaMouse(obszarRysowania);
+        ObslugaMouse obslugaMouse = new ObslugaMouse(obszarRysowania, obszarObliczenia);
         obszarRysowania.addMouseListener(obslugaMouse);
     }
     public static void main(String[] args) {

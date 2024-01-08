@@ -2,12 +2,13 @@ package Gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 import Elementy.Elementy;
 
 public class ObszarRysowania extends JPanel {
-    private List<Elementy> elementyList;
+    protected List<Elementy> elementyList;
     private int typElementu;
     private Elementy elementy;
     private int x,y;
@@ -18,11 +19,15 @@ public class ObszarRysowania extends JPanel {
         typElementu =0;
         x = 0;
         y = 0;
-        elementyList = new ArrayList<>();
+        elementyList = new CopyOnWriteArrayList<>();
     }
 
     public void setTypElementu(int typElementu) {
         this.typElementu = typElementu;
+    }
+
+    public Elementy getElement(int index) {
+        return elementyList.get(index);
     }
 
     void addFig() {

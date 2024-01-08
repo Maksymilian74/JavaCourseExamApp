@@ -51,10 +51,18 @@ public class ObszarObliczenia extends JPanel {
         group.add(radioButton1);
         group.add(radioButton2);
 
-        infoLabel = new JLabel("Wyniki:");
+        infoLabel = new JLabel("Wynik: ");
         infoLabel.setBounds(35,120,120,30);
         add(infoLabel);
 
+    }
 
+    protected void updateInfoLabel(int wynik) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                infoLabel.setText("Wynik: " + wynik);
+            }
+        });
     }
 }
