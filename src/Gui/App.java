@@ -1,3 +1,5 @@
+package Gui;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,7 +23,7 @@ public class App extends JFrame {
         obszarRysowania = new ObszarRysowania();
         mainPanel.add(obszarRysowania, BorderLayout.WEST);
 
-        obszarObliczenia = new ObszarObliczenia();
+        obszarObliczenia = new ObszarObliczenia(obszarRysowania);
         mainPanel.add(obszarObliczenia, BorderLayout.EAST);
 
         ObslugaMouse obslugaMouse = new ObslugaMouse(obszarRysowania);

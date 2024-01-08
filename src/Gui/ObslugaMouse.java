@@ -1,4 +1,5 @@
-import javax.swing.*;
+package Gui;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -11,7 +12,12 @@ public class ObslugaMouse implements MouseListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        int x = e.getX();
+        int y = e.getY();
+        System.out.println("Współrzędne kliknięcia: (" + x + ", " + y + ")");
+        obszarRysowania.setX(x);
+        obszarRysowania.setY(y);
+        obszarRysowania.addFig();
     }
 
     @Override
